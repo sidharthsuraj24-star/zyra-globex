@@ -7,7 +7,7 @@
   <title>Contact / Inquiry | Zyra Globex</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="images/logo.png" type="image/png">
-<script>try{if(sessionStorage.getItem("zyra-open-white")||matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("skip-open")}}catch(e){}</script>
+<script src="js/open-guard.js"></script>
 </head>
 <body>
   <div class="opening" id="opening" role="dialog" aria-label="Zyra Globex">
@@ -80,47 +80,47 @@
           </div>
 
           <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px;">
-            <a href="https://wa.me/917994343666" target="_blank" rel="noopener" class="btn btn-whatsapp">WhatsApp Us</a>
+            <a href="https://wa.me/917994343666" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">WhatsApp Us</a>
             <a href="mailto:contact.zyraglobex@gmail.com" class="btn btn-outline">Email Us</a>
           </div>
         </div>
 
-        <!-- Inquiry Form (Netlify Forms) -->
+        <!-- Inquiry form -->
         <div class="contact-form">
           <h3>Send an Inquiry</h3>
           <form name="inquiry" id="inquiry-form">
             <input type="hidden" name="_subject" value="Zyra Globex website inquiry">
             <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
             <p style="display: none;">
-              <label>Don’t fill this out: <input name="bot-field"></label>
+              <label>Don’t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
             </p>
 
             <div class="form-row">
               <div class="form-group">
                 <label for="name">Your Name *</label>
-                <input type="text" id="name" name="name" required placeholder="Full name">
+                <input type="text" id="name" name="name" required maxlength="80" autocomplete="name" placeholder="Full name">
               </div>
               <div class="form-group">
                 <label for="company">Company Name</label>
-                <input type="text" id="company" name="company" placeholder="Company / Organisation">
+                <input type="text" id="company" name="company" maxlength="120" autocomplete="organization" placeholder="Company / Organisation">
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label for="email">Email *</label>
-                <input type="email" id="email" name="email" required placeholder="your@email.com">
+                <input type="email" id="email" name="email" required maxlength="120" autocomplete="email" placeholder="your@email.com">
               </div>
               <div class="form-group">
                 <label for="phone">Phone / WhatsApp</label>
-                <input type="tel" id="phone" name="phone" placeholder="+Country code number">
+                <input type="tel" id="phone" name="phone" maxlength="40" autocomplete="tel" placeholder="+Country code number">
               </div>
             </div>
 
             <div class="form-group">
               <label for="country">Country / Region *</label>
-              <input type="text" id="country" name="country" required placeholder="e.g. United Arab Emirates">
+              <input type="text" id="country" name="country" required maxlength="80" placeholder="e.g. United Arab Emirates">
             </div>
 
             <div class="form-group">
@@ -143,7 +143,7 @@
 
             <div class="form-group">
               <label for="message">Message / Requirements *</label>
-              <textarea id="message" name="message" required placeholder="Please share product grades, quantities, packaging preferences, destination port, or any other details..."></textarea>
+              <textarea id="message" name="message" required maxlength="2000" placeholder="Please share product grades, quantities, packaging preferences, destination port, or any other details..."></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary" style="width: 100%;">Send Inquiry</button>
