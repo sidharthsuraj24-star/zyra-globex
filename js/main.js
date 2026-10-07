@@ -35,48 +35,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const form = document.querySelector('form[name="inquiry"]');
   if (!form) return;
-  const readyAt = Date.now();
   form.addEventListener('submit', async function (event) {
     event.preventDefault();
     const data = new FormData(form);
-    if (String(data.get('_honey') || data.get('bot-field') || '').trim()) return;
-    const noteBox = form.querySelector('.form-note');
-    function showNote(text) {
-      let note = noteBox;
-      if (!note) {
-        note = document.createElement('p');
-        note.className = 'form-note';
-        form.appendChild(note);
-      }
-      note.textContent = text;
-    }
-    if (Date.now() - readyAt < 1500) {
-      showNote('Please wait a moment and try again.');
-      return;
-    }
+    if (String(data.get('bot-field') || data.get('_honey') || '').trim()) return;
     const payload = {
-      name: String(data.get('name') || '').slice(0, 80),
-      company: String(data.get('company') || '').slice(0, 120),
-      email: String(data.get('email') || '').slice(0, 120),
-      phone: String(data.get('phone') || '').slice(0, 40),
-      country: String(data.get('country') || '').slice(0, 80),
-      products: String(data.get('products') || '').slice(0, 80),
-      message: String(data.get('message') || '').slice(0, 2000),
-      _honey: '',
-      _ts: readyAt
+      name: data.get('name') || '',
+      company: data.get('company') || '',
+      email: data.get('email') || '',
+      phone: data.get('phone') || '',
+      country: data.get('country') || '',
+      products: data.get('products') || '',
+      message: data.get('message') || '',
+      _subject: 'Zyra Globex website inquiry',
+      _template: 'table',
+      _captcha: 'false'
     };
     const btn = form.querySelector('button[type="submit"]');
     if (btn) { btn.textContent = 'Sending...'; btn.disabled = true; }
     try {
-      const res = await fetch('/api/inquiry', {
+      const res = await fetch('https://formsubmit.co/ajax/contact.zyraglobex@gmail.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(payload)
       });
-      const result = await res.json().catch(function () { return {}; });
-      if (!res.ok) throw new Error(result.error || 'send failed');
+      if (!res.ok) throw new Error('send failed');
       form.reset();
-      showNote('Inquiry sent. We usually respond within 1 business day.');
+      const note = document.createElement('p');
+      note.className = 'form-note';
+      note.textContent = 'Inquiry sent. We usually respond within 1 business day.';
+      form.appendChild(note);
       if (btn) { btn.textContent = 'Send Inquiry'; btn.disabled = false; }
     } catch (err) {
       const body = [
@@ -90,7 +78,6 @@ document.addEventListener('DOMContentLoaded', function () {
         payload.message
       ].join('\n');
       window.location.href = 'mailto:contact.zyraglobex@gmail.com?subject=' + encodeURIComponent('Zyra Globex website inquiry') + '&body=' + encodeURIComponent(body);
-      showNote(err && err.message && err.message !== 'send failed' ? err.message : 'Your email app should open with this inquiry.');
       if (btn) { btn.textContent = 'Send Inquiry'; btn.disabled = false; }
     }
   });
