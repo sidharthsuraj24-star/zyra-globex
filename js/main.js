@@ -7,7 +7,7 @@
   }
   document.body.classList.add("opening-lock");
   function finish() {
-    try { sessionStorage.setItem("zyra-open", "1"); } catch (e) {}
+    try { sessionStorage.setItem("zyra-open-white", "1"); } catch (e) {}
     el.remove();
     document.body.classList.remove("opening-lock");
   }

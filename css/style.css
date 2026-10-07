@@ -1198,17 +1198,17 @@ ul {
 .snack-photos figcaption { margin-top: 6px; font-size: 0.78rem; font-weight: 600; color: var(--navy); }
 html.skip-open .opening { display: none; }
 body.opening-lock { overflow: hidden; }
-.opening { position: fixed; inset: 0; z-index: 10000; background: #020814; display: grid; place-items: center; overflow: hidden; }
+.opening { position: fixed; inset: 0; z-index: 10000; background: #ffffff; display: grid; place-items: center; overflow: hidden; }
 .opening.is-out { animation: openingFade 1.15s ease forwards; }
-.opening-bar { position: absolute; left: 0; right: 0; height: 12vh; background: #000; z-index: 2; }
+.opening-bar { position: absolute; left: 0; right: 0; height: 12vh; background: #ffffff; z-index: 2; }
 .opening-bar.top { top: 0; }
 .opening-bar.bottom { bottom: 0; }
 .opening-stage { position: relative; z-index: 1; text-align: center; width: min(680px, 90vw); }
 .opening-logo { width: 100%; height: auto; opacity: 0; transform: scale(0.92); filter: blur(8px); animation: logoIn 2.5s cubic-bezier(0.16, 0.84, 0.28, 1) 0.35s forwards; }
 .opening-line { height: 1px; width: 0; margin: 22px auto 14px; background: linear-gradient(90deg, transparent, #b6d64a, transparent); animation: lineDraw 0.9s ease 2.45s forwards; }
 .opening-tag { margin: 0; opacity: 0; color: rgba(255,255,255,0.82); letter-spacing: 0.42em; text-transform: uppercase; font-size: 0.72rem; font-weight: 500; animation: tagIn 1s ease 2.85s forwards; }
-.opening-skip { position: absolute; right: 22px; bottom: 18px; z-index: 3; background: transparent; border: 0; color: rgba(255,255,255,0.55); letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.68rem; cursor: pointer; }
-.opening::after { content: ""; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 38%, rgba(255,255,255,0.09) 50%, transparent 62%); transform: translateX(-120%); animation: sweep 1.7s ease 1.15s forwards; pointer-events: none; }
+.opening-skip { position: absolute; right: 22px; bottom: 18px; z-index: 3; background: transparent; border: 0; color: rgba(4, 40, 95, 0.45); letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.68rem; cursor: pointer; }
+.opening::after { content: none; }
 @keyframes logoIn { 0% { opacity: 0; transform: scale(0.9); filter: blur(10px); } 60% { opacity: 1; filter: blur(0); } 100% { opacity: 1; transform: scale(1); filter: blur(0); } }
 @keyframes lineDraw { to { width: min(260px, 46vw); } }
 @keyframes tagIn { to { opacity: 1; } }
