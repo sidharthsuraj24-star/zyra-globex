@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Zyra Globex - Request a quotation for coconut products, tender coconut, jaggery, desiccated coconut and Kerala snacks. WhatsApp +91 79943 43666">
+  <title>Contact / Inquiry | Zyra Globex</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="images/logo.png" type="image/png">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="Zyra Globex Logo">
+      </a>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="products.html">Products</a>
+        <a href="why-us.html">Why Choose Us</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>We respond quickly to product inquiries and quotation requests.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+          <p>Whether you need product specifications, samples, or a commercial quotation — reach out to us. We are happy to support importers, distributors and food manufacturers.</p>
+
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="icon">📍</div>
+              <div>
+                <strong>Address</strong>
+                <span>Olavakkode, Palakkad, Kerala, India</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="icon">📞</div>
+              <div>
+                <strong>Phone / WhatsApp</strong>
+                <span><a href="tel:+917994343666">+91 79943 43666</a></span><br>
+                <span><a href="tel:+917994564799">+91 79945 64799</a></span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="icon">✉️</div>
+              <div>
+                <strong>Email</strong>
+                <span><a href="mailto:contact.zyraglobex@gmail.com">contact.zyraglobex@gmail.com</a></span>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px;">
+            <a href="https://wa.me/917994343666" target="_blank" rel="noopener" class="btn btn-whatsapp">WhatsApp Us</a>
+            <a href="mailto:contact.zyraglobex@gmail.com" class="btn btn-outline">Email Us</a>
+          </div>
+
+          <div class="markets">
+            <h4>Target Markets</h4>
+            <p><strong>GCC / Middle East:</strong> UAE, Saudi Arabia, Qatar, Kuwait, Oman, Bahrain</p>
+            <p><strong>Europe:</strong> United Kingdom, Germany, France, Netherlands, Belgium, Italy & other markets</p>
+            <p><strong>Other:</strong> Selected markets in North America, Southeast Asia and Africa</p>
+          </div>
+        </div>
+
+        <!-- Inquiry Form (Netlify Forms) -->
+        <div class="contact-form">
+          <h3>Send an Inquiry</h3>
+          <form name="inquiry" id="inquiry-form">
+            <input type="hidden" name="_subject" value="Zyra Globex website inquiry">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <p style="display: none;">
+              <label>Don’t fill this out: <input name="bot-field"></label>
+            </p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your Name *</label>
+                <input type="text" id="name" name="name" required placeholder="Full name">
+              </div>
+              <div class="form-group">
+                <label for="company">Company Name</label>
+                <input type="text" id="company" name="company" placeholder="Company / Organisation">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required placeholder="your@email.com">
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone / WhatsApp</label>
+                <input type="tel" id="phone" name="phone" placeholder="+Country code number">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="country">Country / Region *</label>
+              <input type="text" id="country" name="country" required placeholder="e.g. United Arab Emirates">
+            </div>
+
+            <div class="form-group">
+              <label for="products">Products of Interest</label>
+              <select id="products" name="products">
+                <option value="">Select a product category</option>
+                <option value="Coconut Oil">Coconut Oil</option>
+                <option value="Tender Coconut">Tender Coconut</option>
+                <option value="Coconut Jaggery">Coconut Jaggery</option>
+                <option value="Coconut Flower Syrup">Coconut Flower Syrup</option>
+                <option value="Coconut Palm Sugar">Coconut Palm Sugar</option>
+                <option value="Coconut Chips">Coconut Chips</option>
+                <option value="Desiccated Coconut">Desiccated Coconut</option>
+                <option value="Sugarcane Jaggery">Sugarcane Jaggery</option>
+                <option value="Tamarind / Kudampuli">Tamarind / Kudampuli</option>
+                <option value="Banana / Tapioca / Jackfruit Chips">Kerala Snacks (Chips)</option>
+                <option value="Multiple / Other">Multiple products / Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message / Requirements *</label>
+              <textarea id="message" name="message" required placeholder="Please share product grades, quantities, packaging preferences, destination port, or any other details..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Inquiry</button>
+            <p style="font-size: 0.82rem; color: var(--gray); margin-top: 12px; text-align: center;">We usually respond within 1 business day.</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo-text">ZYRA <span>GLOBEX</span></a>
+          <p>Rooted in Tradition. Reaching the World.<br>Premium coconut products and authentic Kerala foods for global markets.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="why-us.html">Why Choose Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Products</h4>
+          <ul>
+            <li><a href="products.html#coconut-oil">Coconut Oil</a></li>
+            <li><a href="products.html#tender-coconut">Tender Coconut</a></li>
+            <li><a href="products.html#desiccated-coconut">Desiccated Coconut</a></li>
+            <li><a href="products.html#coconut-jaggery">Coconut Jaggery</a></li>
+            <li><a href="products.html#processed-foods">Kerala Snacks</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p>📍 Olavakkode, Palakkad, Kerala, India</p>
+          <p>📞 <a href="tel:+917994343666">+91 79943 43666</a></p>
+          <p>📞 <a href="tel:+917994564799">+91 79945 64799</a></p>
+          <p>✉️ <a href="mailto:contact.zyraglobex@gmail.com">contact.zyraglobex@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Zyra Globex. All rights reserved.</span>
+        <span>FSSAI | CDB | APEDA | GST Registered</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
