@@ -8,8 +8,20 @@
   <title>Zyra Globex | Premium Coconut Products & Kerala Foods Export</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="images/logo.png" type="image/png">
+<script>try{if(sessionStorage.getItem("zyra-open")||matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("skip-open")}}catch(e){}</script>
 </head>
 <body>
+  <div class="opening" id="opening" role="dialog" aria-label="Zyra Globex">
+    <div class="opening-bar top"></div>
+    <div class="opening-bar bottom"></div>
+    <div class="opening-stage">
+      <img src="images/logo-full.png" alt="Zyra Globex" class="opening-logo">
+      <div class="opening-line"></div>
+      <p class="opening-tag">Rooted in Tradition</p>
+    </div>
+    <button type="button" class="opening-skip" id="opening-skip">Skip</button>
+  </div>
+
 
   <!-- Header -->
   <header class="header">
@@ -127,7 +139,7 @@
       </div>
       <div class="products-grid">
         <div class="product-card">
-          <div class="product-image oil">🛢️</div>
+          <div class="product-image"><img src="images/products/coconut-oil.jpg" alt="Coconut oil"></div>
           <div class="product-body">
             <h3>Coconut Oil</h3>
             <p>Premium coconut oil with natural aroma and flavour. Available in bottles, tins, bulk drums and private-label packaging.</p>
@@ -140,7 +152,7 @@
           </div>
         </div>
         <div class="product-card">
-          <div class="product-image tender">🥥</div>
+          <div class="product-image"><img src="images/products/tender-coconut.jpg" alt="Tender coconut"></div>
           <div class="product-body">
             <h3>Tender Coconut</h3>
             <p>Freshly harvested tender coconuts selected for refreshing water and soft edible kernel. Graded for export markets.</p>
@@ -152,7 +164,7 @@
           </div>
         </div>
         <div class="product-card">
-          <div class="product-image jaggery">🍯</div>
+          <div class="product-image"><img src="images/products/coconut-jaggery.jpg" alt="Coconut jaggery"></div>
           <div class="product-body">
             <h3>Coconut Jaggery & Palm Sugar</h3>
             <p>Traditional sweeteners made from coconut sap with rich caramel-like flavour. Blocks, powder, granulated forms available.</p>
@@ -164,7 +176,7 @@
           </div>
         </div>
         <div class="product-card">
-          <div class="product-image desiccated">❄️</div>
+          <div class="product-image"><img src="images/products/desiccated.jpg" alt="Desiccated coconut"></div>
           <div class="product-body">
             <h3>Desiccated Coconut</h3>
             <p>Finely processed dried coconut meat with controlled moisture. Fine, medium and coarse grades for bakery and industrial use.</p>
@@ -176,7 +188,7 @@
           </div>
         </div>
         <div class="product-card">
-          <div class="product-image tamarind">🍋</div>
+          <div class="product-image"><img src="images/products/tamarind.jpg" alt="Tamarind"></div>
           <div class="product-body">
             <h3>Tamarind & Kudampuli</h3>
             <p>Natural souring ingredients — tamarind pulp and Malabar tamarind (kudampuli) cleaned, graded and ready for export.</p>
@@ -188,7 +200,7 @@
           </div>
         </div>
         <div class="product-card">
-          <div class="product-image snacks">🍌</div>
+          <div class="product-image"><img src="images/products/banana-chips.jpg" alt="Kerala snacks"></div>
           <div class="product-body">
             <h3>Kerala Snacks</h3>
             <p>Traditional banana chips, tapioca chips and jackfruit chips — crisp, authentic and available in retail and bulk packing.</p>

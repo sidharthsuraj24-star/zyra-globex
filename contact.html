@@ -7,8 +7,20 @@
   <title>Contact / Inquiry | Zyra Globex</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="images/logo.png" type="image/png">
+<script>try{if(sessionStorage.getItem("zyra-open")||matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("skip-open")}}catch(e){}</script>
 </head>
 <body>
+  <div class="opening" id="opening" role="dialog" aria-label="Zyra Globex">
+    <div class="opening-bar top"></div>
+    <div class="opening-bar bottom"></div>
+    <div class="opening-stage">
+      <img src="images/logo-full.png" alt="Zyra Globex" class="opening-logo">
+      <div class="opening-line"></div>
+      <p class="opening-tag">Rooted in Tradition</p>
+    </div>
+    <button type="button" class="opening-skip" id="opening-skip">Skip</button>
+  </div>
+
 
   <header class="header">
     <div class="container header-inner">

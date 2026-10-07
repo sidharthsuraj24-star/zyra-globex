@@ -7,8 +7,20 @@
   <title>Products | Zyra Globex</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="images/logo.png" type="image/png">
+<script>try{if(sessionStorage.getItem("zyra-open")||matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("skip-open")}}catch(e){}</script>
 </head>
 <body>
+  <div class="opening" id="opening" role="dialog" aria-label="Zyra Globex">
+    <div class="opening-bar top"></div>
+    <div class="opening-bar bottom"></div>
+    <div class="opening-stage">
+      <img src="images/logo-full.png" alt="Zyra Globex" class="opening-logo">
+      <div class="opening-line"></div>
+      <p class="opening-tag">Rooted in Tradition</p>
+    </div>
+    <button type="button" class="opening-skip" id="opening-skip">Skip</button>
+  </div>
+
 
   <header class="header">
     <div class="container header-inner">
@@ -56,7 +68,7 @@
     <!-- Coconut Oil -->
     <div class="product-detail" id="coconut-oil">
       <div class="product-detail-grid">
-        <div class="product-detail-image oil">🛢️</div>
+        <div class="product-detail-image"><img src="images/products/coconut-oil.jpg" alt="Coconut oil"></div>
         <div class="product-detail-content">
           <h2>Coconut Oil</h2>
           <p class="desc">Premium coconut oil produced from quality coconuts, suitable for culinary, food-processing and other permitted applications. Available in specifications tailored to the buyer’s intended use and market.</p>
@@ -67,7 +79,7 @@
     <!-- Tender Coconut -->
     <div class="product-detail" id="tender-coconut">
       <div class="product-detail-grid">
-        <div class="product-detail-image tender">🥥</div>
+        <div class="product-detail-image"><img src="images/products/tender-coconut.jpg" alt="Tender coconut"></div>
         <div class="product-detail-content">
           <h2>Tender Coconut</h2>
           <p class="desc">Fresh tender coconuts selected for their refreshing coconut water and soft edible kernel. Suitable for fresh-fruit distributors, supermarkets, hospitality and food-service markets.</p>
@@ -78,7 +90,7 @@
     <!-- Coconut Jaggery -->
     <div class="product-detail" id="coconut-jaggery">
       <div class="product-detail-grid">
-        <div class="product-detail-image jaggery">🍯</div>
+        <div class="product-detail-image"><img src="images/products/coconut-jaggery.jpg" alt="Coconut jaggery"></div>
         <div class="product-detail-content">
           <h2>Coconut Jaggery</h2>
           <p class="desc">Traditional jaggery made from concentrated coconut sap, offering a naturally rich caramel-like flavour and characteristic dark golden to brown colour. Suitable for traditional foods, confectionery and sweet preparations.</p>
@@ -89,7 +101,7 @@
     <!-- Coconut Flower Syrup -->
     <div class="product-detail" id="coconut-flower-syrup">
       <div class="product-detail-grid">
-        <div class="product-detail-image syrup">🫗</div>
+        <div class="product-detail-image"><img src="images/products/flower-syrup.jpg" alt="Coconut flower syrup"></div>
         <div class="product-detail-content">
           <h2>Coconut Flower Syrup</h2>
           <p class="desc">A naturally derived syrup produced by collecting and concentrating coconut flower sap. It offers a distinctive caramel-like flavour and can be used as a sweetener, topping or food ingredient.</p>
@@ -100,7 +112,7 @@
     <!-- Coconut Palm Sugar -->
     <div class="product-detail" id="coconut-palm-sugar">
       <div class="product-detail-grid">
-        <div class="product-detail-image sugar">🍬</div>
+        <div class="product-detail-image"><img src="images/products/palm-sugar.jpg" alt="Coconut palm sugar"></div>
         <div class="product-detail-content">
           <h2>Coconut Palm Sugar</h2>
           <p class="desc">Coconut palm sugar is produced by concentrating coconut palm sap into a naturally flavoured sweetener. It can be supplied in convenient forms for both retail and food-processing applications.</p>
@@ -111,7 +123,7 @@
     <!-- Coconut Chips -->
     <div class="product-detail" id="coconut-chips">
       <div class="product-detail-grid">
-        <div class="product-detail-image chips">🥥</div>
+        <div class="product-detail-image"><img src="images/products/coconut-chips.jpg" alt="Coconut chips"></div>
         <div class="product-detail-content">
           <h2>Coconut Chips</h2>
           <p class="desc">Thinly sliced coconut pieces processed to provide a naturally crunchy texture and distinctive coconut flavour. Suitable as a snack or as an ingredient for cereals, bakery, confectionery and food products.</p>
@@ -122,7 +134,7 @@
     <!-- Desiccated Coconut -->
     <div class="product-detail" id="desiccated-coconut">
       <div class="product-detail-grid">
-        <div class="product-detail-image desiccated">❄️</div>
+        <div class="product-detail-image"><img src="images/products/desiccated.jpg" alt="Desiccated coconut"></div>
         <div class="product-detail-content">
           <h2>Desiccated Coconut Powder</h2>
           <p class="desc">Finely processed dried coconut meat with controlled moisture, suitable for bakery, confectionery, desserts, food manufacturing and culinary applications. Different particle sizes can be supplied according to buyer specifications.</p>
@@ -133,7 +145,7 @@
     <!-- Sugarcane Jaggery -->
     <div class="product-detail" id="sugarcane-jaggery">
       <div class="product-detail-grid">
-        <div class="product-detail-image jaggery">🟫</div>
+        <div class="product-detail-image"><img src="images/products/sugarcane-jaggery.jpg" alt="Sugarcane jaggery"></div>
         <div class="product-detail-content">
           <h2>Sugarcane Jaggery</h2>
           <p class="desc">Traditional unrefined sweetener produced by concentrating sugarcane juice. It has a characteristic caramel-like taste and can be supplied for household consumption, traditional foods and food-processing applications.</p>
@@ -144,7 +156,7 @@
     <!-- Tamarind -->
     <div class="product-detail" id="tamarind">
       <div class="product-detail-grid">
-        <div class="product-detail-image tamarind">🍋</div>
+        <div class="product-detail-image"><img src="images/products/tamarind.jpg" alt="Tamarind and kudampuli"></div>
         <div class="product-detail-content">
           <h2>Tamarind & Malabar Tamarind (Kudampuli)</h2>
           <p class="desc"><strong>Tamarind:</strong> A naturally acidic fruit widely used as a souring ingredient in cooking, sauces, chutneys, beverages and food processing. Available as whole pods, seeded/seedless pulp or pressed blocks.</p>
@@ -156,10 +168,15 @@
     <!-- Processed Foods -->
     <div class="product-detail" id="processed-foods">
       <div class="product-detail-grid">
-        <div class="product-detail-image snacks">🍌</div>
+        <div class="product-detail-image"><img src="images/products/banana-chips.jpg" alt="Kerala snacks"></div>
         <div class="product-detail-content">
           <h2>Processed Foods – Kerala Snacks</h2>
           <p class="desc">Traditional Kerala-style snacks prepared for retail and international ethnic-food markets.</p>
+          <div class="snack-photos">
+            <figure><img src="images/products/banana-chips.jpg" alt="Banana chips"><figcaption>Banana Chips</figcaption></figure>
+            <figure><img src="images/products/tapioca-chips.jpg" alt="Tapioca chips"><figcaption>Tapioca Chips</figcaption></figure>
+            <figure><img src="images/products/jackfruit-chips.jpg" alt="Jackfruit chips"><figcaption>Jackfruit Chips</figcaption></figure>
+          </div>
 
           <h3 style="color: var(--navy); margin: 20px 0 10px; font-size: 1.15rem;">Banana Chips</h3>
           <p class="desc">Traditional Kerala-style banana chips prepared from selected bananas and sliced into thin, crispy pieces. Available in salted, spiced and other customized variants.</p>

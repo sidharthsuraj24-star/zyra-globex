@@ -1,3 +1,22 @@
+
+(function () {
+  var el = document.getElementById("opening");
+  if (!el || document.documentElement.classList.contains("skip-open")) {
+    if (el) el.remove();
+    return;
+  }
+  document.body.classList.add("opening-lock");
+  function finish() {
+    try { sessionStorage.setItem("zyra-open", "1"); } catch (e) {}
+    el.remove();
+    document.body.classList.remove("opening-lock");
+  }
+  var skip = document.getElementById("opening-skip");
+  if (skip) skip.addEventListener("click", finish);
+  setTimeout(function () { el.classList.add("is-out"); }, 4800);
+  setTimeout(finish, 6000);
+})();
+
 document.addEventListener('DOMContentLoaded', function () {
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.nav');
