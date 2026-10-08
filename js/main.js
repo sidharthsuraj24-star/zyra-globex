@@ -13,8 +13,8 @@
   }
   var skip = document.getElementById("opening-skip");
   if (skip) skip.addEventListener("click", finish);
-  setTimeout(function () { el.classList.add("is-out"); }, 4800);
-  setTimeout(finish, 6000);
+  setTimeout(function () { el.classList.add("is-out"); }, 2600);
+  setTimeout(finish, 3400);
 })();
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -110,7 +110,80 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  document.querySelectorAll('.product-detail').forEach(function (block) {
+    var imageBox = block.querySelector('.product-detail-image');
+    var photo = imageBox && imageBox.querySelector('img');
+    var heading = block.querySelector('h2');
+    var blurb = block.querySelector('.desc');
+    function openMain() {
+      if (!photo || !heading) return;
+      openSheet(photo.getAttribute('src'), heading.textContent, blurb ? blurb.textContent : '');
+    }
+    if (imageBox) imageBox.addEventListener('click', openMain);
+    if (heading) heading.addEventListener('click', openMain);
+    block.querySelectorAll('.snack-photos figure').forEach(function (fig) {
+      fig.addEventListener('click', function (event) {
+        event.stopPropagation();
+        var im = fig.querySelector('img');
+        var cap = fig.querySelector('figcaption');
+        if (!im) return;
+        openSheet(im.getAttribute('src'), cap ? cap.textContent : '', blurb ? blurb.textContent : '');
+      });
+    });
+  });
+
+  function openSheet(src, title, about) {
+    var sheet = document.querySelector('.sheet');
+    if (!sheet) {
+      sheet = document.createElement('div');
+      sheet.className = 'sheet';
+      sheet.innerHTML = '<button type="button" class="sheet-scrim" aria-label="Close"></button><div class="sheet-card" role="dialog"><img alt=""><div><button type="button" class="sheet-close">Close</button><h3></h3><p class="sheet-about"></p><button type="button" class="sheet-add">Add to enquiry</button><p class="sheet-note" hidden>Added. Send it from Contact whenever you are ready.</p></div></div>';
+      document.body.appendChild(sheet);
+      sheet.querySelector('.sheet-scrim').addEventListener('click', closeSheet);
+      sheet.querySelector('.sheet-close').addEventListener('click', closeSheet);
+      sheet.querySelector('.sheet-add').addEventListener('click', function () {
+        var name = sheet.querySelector('h3').textContent || '';
+        var list = [];
+        try { list = JSON.parse(sessionStorage.getItem('zyra-enquiry') || '[]'); } catch (e) {}
+        if (list.indexOf(name) === -1) list.push(name);
+        sessionStorage.setItem('zyra-enquiry', JSON.stringify(list));
+        sheet.querySelector('.sheet-add').hidden = true;
+        sheet.querySelector('.sheet-note').hidden = false;
+      });
+    }
+    sheet.querySelector('img').setAttribute('src', src || '');
+    sheet.querySelector('h3').textContent = title || '';
+    sheet.querySelector('.sheet-about').textContent = about || '';
+    sheet.querySelector('.sheet-add').hidden = false;
+    sheet.querySelector('.sheet-note').hidden = true;
+    sheet.classList.add('is-open');
+  }
+  function closeSheet() {
+    var sheet = document.querySelector('.sheet');
+    if (sheet) sheet.classList.remove('is-open');
+  }
+
   const form = document.querySelector('form[name="inquiry"]');
+  var savedEnquiry = [];
+  try { savedEnquiry = JSON.parse(sessionStorage.getItem('zyra-enquiry') || '[]'); } catch (e) {}
+  if (savedEnquiry.length && form) {
+    var select = form.querySelector('#products');
+    var message = form.querySelector('#message');
+    if (select && savedEnquiry.length === 1) {
+      var wanted = savedEnquiry[0];
+      var matched = false;
+      Array.prototype.forEach.call(select.options, function (option) {
+        if (!matched && option.value && (option.value === wanted || option.text === wanted || wanted.indexOf(option.text) !== -1)) {
+          select.value = option.value;
+          matched = true;
+        }
+      });
+      if (!matched) select.value = 'Multiple / Other';
+    } else if (select) {
+      select.value = 'Multiple / Other';
+    }
+    if (message && !message.value) message.value = 'Products of interest: ' + savedEnquiry.join(', ') + '\n';
+  }
   if (!form) return;
   form.addEventListener('submit', async function (event) {
     event.preventDefault();

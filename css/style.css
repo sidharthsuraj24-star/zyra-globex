@@ -1200,12 +1200,12 @@ ul {
 html.skip-open .opening { display: none; }
 body.opening-lock { overflow: hidden; }
 .opening { position: fixed; inset: 0; z-index: 10000; background: #ffffff; display: grid; place-items: center; overflow: hidden; }
-.opening.is-out { animation: openingFade 1.15s ease forwards; }
+.opening.is-out { animation: openingFade 0.7s ease forwards; }
 .opening-bar { position: absolute; left: 0; right: 0; height: 12vh; background: #ffffff; z-index: 2; }
 .opening-bar.top { top: 0; }
 .opening-bar.bottom { bottom: 0; }
 .opening-stage { position: relative; z-index: 1; text-align: center; width: min(680px, 90vw); }
-.opening-logo { width: 100%; height: auto; opacity: 0; transform: scale(0.92); filter: blur(8px); animation: logoIn 2.5s cubic-bezier(0.16, 0.84, 0.28, 1) 0.35s forwards; }
+.opening-logo { width: 100%; height: auto; opacity: 0; transform: scale(0.92); filter: blur(8px); animation: logoIn 1.45s cubic-bezier(0.16, 0.84, 0.28, 1) 0.15s forwards; }
 .opening-line { height: 1px; width: 0; margin: 22px auto 14px; background: linear-gradient(90deg, transparent, #b6d64a, transparent); animation: lineDraw 0.9s ease 2.45s forwards; }
 .opening-tag { margin: 0; opacity: 0; color: rgba(255,255,255,0.82); letter-spacing: 0.42em; text-transform: uppercase; font-size: 0.72rem; font-weight: 500; animation: tagIn 1s ease 2.85s forwards; }
 .opening-skip { position: absolute; right: 22px; bottom: 18px; z-index: 3; background: transparent; border: 0; color: rgba(4, 40, 95, 0.45); letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.68rem; cursor: pointer; }
@@ -1472,4 +1472,16 @@ body.opening-lock { overflow: hidden; }
 .reel-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.08); transition: opacity 0.9s ease, transform 4.2s ease; }
 .reel-frame img.is-on { opacity: 1; transform: scale(1); }
 .reel-caption { position: absolute; left: 18px; bottom: 16px; z-index: 2; color: #fff; background: rgba(4, 40, 95, 0.78); padding: 8px 14px; border-radius: 999px; font-weight: 600; }
+.product-detail-image, .product-detail h2, .snack-photos figure { cursor: pointer; }
+.sheet { position: fixed; inset: 0; z-index: 2500; display: none; }
+.sheet.is-open { display: block; }
+.sheet-scrim { position: absolute; inset: 0; width: 100%; border: 0; background: rgba(4, 40, 95, 0.16); cursor: pointer; }
+.sheet-card { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); width: min(420px, calc(100% - 24px)); display: grid; grid-template-columns: 88px 1fr; gap: 12px; padding: 14px; background: #fff; border-radius: 16px; border: 1px solid rgba(4, 40, 95, 0.12); box-shadow: 0 16px 40px rgba(4, 40, 95, 0.16); }
+.sheet-card img { width: 88px; height: 88px; object-fit: cover; border-radius: 10px; }
+.sheet-card h3 { color: var(--navy); font-size: 1.05rem; margin: 0 28px 6px 0; }
+.sheet-card p { color: var(--gray); font-size: 0.88rem; line-height: 1.45; margin: 0 0 10px; }
+.sheet-close { position: absolute; top: 10px; right: 10px; border: 0; background: none; color: var(--navy); font-size: 0.78rem; cursor: pointer; }
+.sheet-add { border: 1px solid var(--navy); background: #fff; color: var(--navy); border-radius: 999px; padding: 6px 12px; font-size: 0.8rem; font-weight: 600; cursor: pointer; }
+.sheet-note { color: var(--navy); font-weight: 600; }
+
 
