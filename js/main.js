@@ -53,6 +53,16 @@ document.addEventListener('DOMContentLoaded', function () {
   markHeader();
   window.addEventListener('scroll', markHeader, { passive: true });
 
+  var heroSlides = document.querySelectorAll('.hero-slides img');
+  if (heroSlides.length && !reduce) {
+    var heroIndex = 0;
+    setInterval(function () {
+      heroSlides[heroIndex].classList.remove('is-on');
+      heroIndex = (heroIndex + 1) % heroSlides.length;
+      heroSlides[heroIndex].classList.add('is-on');
+    }, 5200);
+  }
+
   var reel = document.querySelector('.reel-frame');
   if (reel && !reduce) {
     var shots = reel.querySelectorAll('img');
