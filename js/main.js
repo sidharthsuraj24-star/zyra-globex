@@ -229,6 +229,16 @@ document.addEventListener('DOMContentLoaded', function () {
       list.appendChild(li);
     });
   }
+  document.querySelectorAll('[data-product]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      var name = link.getAttribute('data-product');
+      if (!name) return;
+      var list = readEnquiry();
+      if (list.indexOf(name) === -1) list.push(name);
+      sessionStorage.setItem('zyra-enquiry', JSON.stringify(list));
+    });
+  });
+
   window.addEventListener('zyra-enquiry', paintBag);
   paintBag();
   var productSelect = document.querySelector('#products');
