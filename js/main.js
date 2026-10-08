@@ -149,6 +149,8 @@ document.addEventListener('DOMContentLoaded', function () {
         sessionStorage.setItem('zyra-enquiry', JSON.stringify(list));
         sheet.querySelector('.sheet-add').hidden = true;
         sheet.querySelector('.sheet-note').hidden = false;
+        window.dispatchEvent(new Event('zyra-enquiry'));
+        closeSheet();
       });
     }
     sheet.querySelector('img').setAttribute('src', src || '');
@@ -161,6 +163,62 @@ document.addEventListener('DOMContentLoaded', function () {
   function closeSheet() {
     var sheet = document.querySelector('.sheet');
     if (sheet) sheet.classList.remove('is-open');
+  }
+
+  function readEnquiry() {
+    try {
+      var list = JSON.parse(sessionStorage.getItem('zyra-enquiry') || '[]');
+      return Array.isArray(list) ? list.filter(Boolean) : [];
+    } catch (e) { return []; }
+  }
+  function paintBag() {
+    var items = readEnquiry();
+    var bag = document.querySelector('.inquiry-bag');
+    if (!items.length) {
+      if (bag) bag.remove();
+      return;
+    }
+    if (!bag) {
+      bag = document.createElement('div');
+      bag.className = 'inquiry-bag';
+      bag.innerHTML = '<div class="inquiry-panel" hidden><p>Enquiry</p><ul></ul><a href="contact.html">Send enquiry</a></div><button type="button" class="inquiry-bag-btn" aria-label="Open enquiry"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8zm3-2a3 3 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg><span class="inquiry-count"></span></button>';
+      document.body.appendChild(bag);
+      bag.querySelector('.inquiry-bag-btn').addEventListener('click', function () {
+        var panel = bag.querySelector('.inquiry-panel');
+        panel.hidden = !panel.hidden;
+      });
+    }
+    bag.querySelector('.inquiry-count').textContent = String(items.length);
+    var list = bag.querySelector('ul');
+    list.innerHTML = '';
+    items.forEach(function (name) {
+      var li = document.createElement('li');
+      var label = document.createElement('span');
+      label.textContent = name;
+      var remove = document.createElement('button');
+      remove.type = 'button';
+      remove.textContent = 'Remove';
+      remove.addEventListener('click', function () {
+        sessionStorage.setItem('zyra-enquiry', JSON.stringify(readEnquiry().filter(function (item) { return item !== name; })));
+        paintBag();
+      });
+      li.appendChild(label);
+      li.appendChild(remove);
+      list.appendChild(li);
+    });
+  }
+  window.addEventListener('zyra-enquiry', paintBag);
+  paintBag();
+  var productSelect = document.querySelector('#products');
+  if (productSelect) {
+    productSelect.addEventListener('change', function () {
+      var value = productSelect.value;
+      if (!value || value.indexOf('Multiple') === 0) return;
+      var list = readEnquiry();
+      if (list.indexOf(value) === -1) list.push(value);
+      sessionStorage.setItem('zyra-enquiry', JSON.stringify(list));
+      paintBag();
+    });
   }
 
   const form = document.querySelector('form[name="inquiry"]');
