@@ -54,13 +54,25 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', markHeader, { passive: true });
 
   var heroSlides = document.querySelectorAll('.hero-slides img');
+  var heroDots = document.querySelectorAll('.hero-dots button');
   if (heroSlides.length && !reduce) {
     var heroIndex = 0;
     setInterval(function () {
       heroSlides[heroIndex].classList.remove('is-on');
+      if (heroDots[heroIndex]) heroDots[heroIndex].classList.remove('is-on');
       heroIndex = (heroIndex + 1) % heroSlides.length;
       heroSlides[heroIndex].classList.add('is-on');
+      if (heroDots[heroIndex]) heroDots[heroIndex].classList.add('is-on');
     }, 5200);
+    heroDots.forEach(function (dot, index) {
+      dot.addEventListener('click', function () {
+        heroSlides[heroIndex].classList.remove('is-on');
+        if (heroDots[heroIndex]) heroDots[heroIndex].classList.remove('is-on');
+        heroIndex = index;
+        heroSlides[heroIndex].classList.add('is-on');
+        dot.classList.add('is-on');
+      });
+    });
   }
 
   var reel = document.querySelector('.reel-frame');
@@ -264,6 +276,8 @@ document.addEventListener('DOMContentLoaded', function () {
       phone: data.get('phone') || '',
       country: data.get('country') || '',
       products: data.get('products') || '',
+      quantity: data.get('quantity') || '',
+      packing: data.get('packing') || '',
       message: data.get('message') || '',
       _subject: 'Zyra Globex website inquiry',
       _template: 'table',
@@ -292,6 +306,8 @@ document.addEventListener('DOMContentLoaded', function () {
         'Phone: ' + payload.phone,
         'Country: ' + payload.country,
         'Products: ' + payload.products,
+        'Quantity: ' + payload.quantity,
+        'Packing: ' + payload.packing,
         '',
         payload.message
       ].join('\n');
