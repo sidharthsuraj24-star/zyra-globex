@@ -53,6 +53,23 @@ document.addEventListener('DOMContentLoaded', function () {
   markHeader();
   window.addEventListener('scroll', markHeader, { passive: true });
 
+  var reel = document.querySelector('.reel-frame');
+  if (reel && !reduce) {
+    var shots = reel.querySelectorAll('img');
+    var cap = reel.querySelector('.reel-caption');
+    var reelIndex = 0;
+    setInterval(function () {
+      if (!shots.length) return;
+      shots[reelIndex].classList.remove('is-on');
+      reelIndex = (reelIndex + 1) % shots.length;
+      shots[reelIndex].classList.add('is-on');
+      if (cap) {
+        cap.textContent = shots[reelIndex].getAttribute('data-title') || '';
+        cap.setAttribute('href', shots[reelIndex].getAttribute('data-href') || '#');
+      }
+    }, 3800);
+  }
+
   var nodes = document.querySelectorAll('.section, .chapter, .product-detail, .page-hero');
   if (!reduce) {
     var io = new IntersectionObserver(function (entries) {
