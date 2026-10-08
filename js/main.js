@@ -34,13 +34,18 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   var header = document.querySelector('.header');
+  var heroContent = document.querySelector('.hero-content');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function markHeader() {
     if (header) header.classList.toggle('is-scrolled', window.scrollY > 8);
+    if (!heroContent || reduce) return;
+    var p = Math.max(0, Math.min(1, window.scrollY / (window.innerHeight * 0.72)));
+    heroContent.style.opacity = String(1 - p);
+    heroContent.style.transform = 'translate3d(0,' + (-p * 70).toFixed(1) + 'px,0)';
   }
   markHeader();
   window.addEventListener('scroll', markHeader, { passive: true });
 
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var nodes = document.querySelectorAll('.section, .chapter, .product-detail, .page-hero');
   if (!reduce) {
     var io = new IntersectionObserver(function (entries) {
@@ -64,8 +69,10 @@ document.addEventListener('DOMContentLoaded', function () {
         var rect = parent.getBoundingClientRect();
         var progress = (view - rect.top) / (view + rect.height);
         progress = Math.max(0, Math.min(1, progress));
-        var y = (progress - 0.5) * 28;
-        img.style.transform = 'translate3d(0,' + y.toFixed(1) + 'px,0) scale(1.06)';
+        var y = (progress - 0.5) * Math.min(140, rect.height * 0.18);
+        var centered = 1 - Math.min(1, Math.abs(rect.top + rect.height / 2 - view / 2) / view);
+        var scale = 1.05 + centered * 0.14;
+        img.style.transform = 'translate3d(0,' + y.toFixed(1) + 'px,0) scale(' + scale.toFixed(3) + ')';
       });
       ticking = false;
     }

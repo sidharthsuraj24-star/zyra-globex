@@ -1224,6 +1224,10 @@ body.opening-lock { overflow: hidden; }
 
 /* Quiet, physical motion. Logo colours stay navy and lime. */
 .hero {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 100svh;
   min-height: 100svh;
   background: #04285f;
 }
@@ -1251,8 +1255,23 @@ body.opening-lock { overflow: hidden; }
   transform: scale(1.04);
 }
 
-.chapters {
+.section,
+.section-alt,
+.chapters,
+.chapter,
+.cta-banner,
+.footer,
+.page-hero {
+  position: relative;
+  z-index: 2;
+}
+
+.section {
   background: #fff;
+}
+
+.section-alt {
+  background: var(--off-white);
 }
 
 .chapter {
@@ -1276,9 +1295,9 @@ body.opening-lock { overflow: hidden; }
 
 .chapter-photo img {
   width: 100%;
-  height: 100%;
+  height: 128%;
   object-fit: cover;
-  transform: scale(1.06);
+  transform: scale(1.08);
 }
 
 .chapter-copy {
