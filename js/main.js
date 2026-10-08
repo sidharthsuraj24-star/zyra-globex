@@ -75,10 +75,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  var reel = document.querySelector('.reel-frame');
+  var reel = document.querySelector('.page-hero.has-reel .hero-slides') || document.querySelector('.reel-frame');
   if (reel && !reduce) {
     var shots = reel.querySelectorAll('img');
-    var cap = reel.querySelector('.reel-caption');
+    var cap = document.querySelector('.page-hero.has-reel .reel-caption') || reel.querySelector('.reel-caption');
     var reelIndex = 0;
     setInterval(function () {
       if (!shots.length) return;
