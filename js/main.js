@@ -36,9 +36,16 @@ document.addEventListener('DOMContentLoaded', function () {
   var header = document.querySelector('.header');
   var heroContent = document.querySelector('.hero-content');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nativeScroll = window.CSS && CSS.supports('animation-timeline: scroll()');
+  if (!document.querySelector('.scroll-progress')) {
+    var bar = document.createElement('div');
+    bar.className = 'scroll-progress';
+    bar.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(bar);
+  }
   function markHeader() {
     if (header) header.classList.toggle('is-scrolled', window.scrollY > 8);
-    if (!heroContent || reduce) return;
+    if (!heroContent || reduce || nativeScroll) return;
     var p = Math.max(0, Math.min(1, window.scrollY / (window.innerHeight * 0.72)));
     heroContent.style.opacity = String(1 - p);
     heroContent.style.transform = 'translate3d(0,' + (-p * 70).toFixed(1) + 'px,0)';
@@ -76,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
       });
       ticking = false;
     }
-    if (photos.length) {
+    if (photos.length && !nativeScroll) {
       window.addEventListener('scroll', function () {
         if (ticking) return;
         ticking = true;

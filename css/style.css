@@ -1379,7 +1379,62 @@ body.opening-lock { overflow: hidden; }
     opacity: 1;
     transform: none;
   }
+
+  .scroll-progress,
+  .hero-content,
+  .chapter-photo img {
+    animation: none;
+  }
 }
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3000;
+  width: 100%;
+  height: 3px;
+  background: #9ec819;
+  transform: scaleX(0);
+  transform-origin: left center;
+  pointer-events: none;
+}
+
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    animation: scrollFill linear both;
+    animation-timeline: scroll(root block);
+  }
+
+  .hero-content {
+    animation: heroLift linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0 68vh;
+  }
+
+  .chapter-photo img {
+    animation: chapterDrift linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 45%;
+  }
+}
+
+@keyframes scrollFill {
+  to { transform: scaleX(1); }
+}
+
+@keyframes heroLift {
+  to {
+    opacity: 0;
+    transform: translate3d(0, -80px, 0);
+  }
+}
+
+@keyframes chapterDrift {
+  from { transform: translate3d(0, 48px, 0) scale(1.16); }
+  to { transform: translate3d(0, -24px, 0) scale(1); }
+}
+
 
 
 
