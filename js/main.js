@@ -92,6 +92,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 3800);
   }
 
+  if (!reduce && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('.product-detail-image').forEach(function (stage) {
+      stage.addEventListener('pointermove', function (event) {
+        var box = stage.getBoundingClientRect();
+        var x = (event.clientX - box.left) / box.width - 0.5;
+        var y = (event.clientY - box.top) / box.height - 0.5;
+        stage.style.transform = 'perspective(1100px) rotateY(' + (x * 12).toFixed(2) + 'deg) rotateX(' + (-y * 8).toFixed(2) + 'deg)';
+      });
+      stage.addEventListener('pointerleave', function () {
+        stage.style.transform = '';
+      });
+    });
+  }
+
   var nodes = document.querySelectorAll('.section, .chapter, .product-detail, .page-hero');
   if (!reduce) {
     var io = new IntersectionObserver(function (entries) {

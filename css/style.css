@@ -1620,3 +1620,13 @@ button.product-detail-image {
   .page-hero.has-reel { min-height: 340px; padding: 72px 0 64px; }
   .page-hero.has-reel .reel-caption { left: 16px; bottom: 14px; }
 }
+
+.product-detail .product-detail-image {
+  transform: perspective(1100px) rotateY(-7deg) rotateX(4deg);
+  transform-origin: center center;
+  box-shadow: 22px 34px 42px rgba(4, 40, 95, 0.2);
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .product-detail .product-detail-image { transform: none; box-shadow: none; }
+}
