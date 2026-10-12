@@ -1622,11 +1622,52 @@ button.product-detail-image {
 }
 
 .product-detail .product-detail-image {
-  transform: perspective(1100px) rotateY(-7deg) rotateX(4deg);
+  overflow: visible;
+  transform-style: preserve-3d;
+  transform: perspective(760px) rotateY(-18deg) rotateX(8deg);
   transform-origin: center center;
-  box-shadow: 22px 34px 42px rgba(4, 40, 95, 0.2);
-  transition: transform 0.45s ease, box-shadow 0.45s ease;
+  box-shadow: none;
+  margin: 6px 18px 26px 0;
+  animation: zyraSlab 8s ease-in-out infinite;
+}
+.product-detail:nth-child(even) .product-detail-image { animation-delay: -4s; }
+.product-detail .product-detail-image img {
+  position: relative;
+  z-index: 2;
+  transform: translateZ(18px);
+  box-shadow: 0 22px 28px rgba(4, 40, 95, 0.22);
+}
+.product-detail .product-detail-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 14px;
+  background: linear-gradient(160deg, #16356c, #04285f 55%, #9ec819);
+  transform: translateZ(-6px);
+}
+.product-detail .product-detail-image::after {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: -18px;
+  z-index: 0;
+  height: 28px;
+  background: radial-gradient(ellipse at center, rgba(4, 40, 95, 0.38), transparent 70%);
+  transform: rotateX(72deg);
+  pointer-events: none;
+}
+.product-detail:hover .product-detail-image img {
+  transform: translateZ(18px) scale(1.02);
+}
+@keyframes zyraSlab {
+  0%, 100% { transform: perspective(760px) rotateY(-18deg) rotateX(8deg); }
+  50% { transform: perspective(760px) rotateY(16deg) rotateX(5deg); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .product-detail .product-detail-image { transform: none; box-shadow: none; }
+  .product-detail .product-detail-image {
+    animation: none;
+    transform: perspective(760px) rotateY(-14deg) rotateX(6deg);
+  }
 }

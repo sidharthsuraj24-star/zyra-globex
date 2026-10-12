@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var box = stage.getBoundingClientRect();
         var x = (event.clientX - box.left) / box.width - 0.5;
         var y = (event.clientY - box.top) / box.height - 0.5;
-        stage.style.transform = 'perspective(1100px) rotateY(' + (x * 12).toFixed(2) + 'deg) rotateX(' + (-y * 8).toFixed(2) + 'deg)';
+        stage.style.transform = 'perspective(760px) rotateY(' + (x * 26).toFixed(2) + 'deg) rotateX(' + (-y * 14).toFixed(2) + 'deg)';
       });
       stage.addEventListener('pointerleave', function () {
         stage.style.transform = '';
