@@ -1671,3 +1671,13 @@ button.product-detail-image {
     transform: perspective(760px) rotateY(-14deg) rotateX(6deg);
   }
 }
+
+.hero-logo {
+  display: block;
+  height: 72px;
+  width: auto;
+  margin: 0 0 22px;
+  padding: 8px 12px 7px;
+  background: #fff;
+  border-radius: 14px;
+}
