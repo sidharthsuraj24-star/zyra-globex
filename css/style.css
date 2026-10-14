@@ -1675,33 +1675,35 @@ button.product-detail-image {
 .hero-mark {
   position: absolute;
   z-index: 4;
-  left: 50%;
-  top: 36%;
-  padding: 22px 28px 18px;
-  background: rgba(255, 255, 255, 0.96);
-  border-radius: 28px;
-  box-shadow: 0 22px 48px rgba(2, 16, 40, 0.32);
+  left: 0;
+  top: 42%;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
   pointer-events: none;
-  animation: heroMarkIn 1.15s ease both, heroMarkCome 7s ease-in-out 1.15s infinite;
+  animation: heroMarkPass 11s linear infinite;
 }
 .hero-mark img {
   display: block;
   height: 276px;
   width: auto;
-  max-width: 78vw;
+  max-width: none;
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.45));
 }
-@keyframes heroMarkIn {
-  from { opacity: 0; transform: translate(-78%, -50%) scale(0.82); }
-  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-}
-@keyframes heroMarkCome {
-  0%, 100% { transform: translate(-50%, -50%) scale(0.96); }
-  50% { transform: translate(-50%, -50%) scale(1); }
+@keyframes heroMarkPass {
+  0% { transform: translate3d(100vw, -50%, 0); }
+  100% { transform: translate3d(-100%, -50%, 0); }
 }
 @media (max-width: 900px) {
-  .hero-mark { top: 34%; padding: 14px 16px 12px; }
   .hero-mark img { height: 168px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-mark { animation: none; transform: translate(-50%, -50%); }
+  .hero-mark {
+    animation: none;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .hero-mark img { height: 120px; }
 }
