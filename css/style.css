@@ -1687,7 +1687,7 @@ button.product-detail-image {
 }
 .hero-mark img {
   display: block;
-  height: 276px;
+  height: 140px;
   width: auto;
   max-width: none;
   filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.45));
@@ -1697,7 +1697,7 @@ button.product-detail-image {
   100% { transform: translate3d(-100%, -50%, 0); }
 }
 @media (max-width: 900px) {
-  .hero-mark img { height: 168px; }
+  .hero-mark img { height: 96px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-mark {
