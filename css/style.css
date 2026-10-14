@@ -1671,3 +1671,41 @@ button.product-detail-image {
     transform: perspective(760px) rotateY(-14deg) rotateX(6deg);
   }
 }
+
+.hero-layout {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.85fr);
+  align-items: center;
+  gap: 20px;
+}
+.hero-mark {
+  justify-self: center;
+  padding: 16px 22px 14px;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 20px;
+  box-shadow: 0 18px 40px rgba(2, 16, 40, 0.28);
+  animation: heroMarkIn 1s ease both, heroMarkFloat 5.5s ease-in-out 1s infinite;
+}
+.hero-mark img {
+  display: block;
+  height: 92px;
+  width: auto;
+}
+@keyframes heroMarkIn {
+  from { opacity: 0; transform: translateY(18px) scale(0.94); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes heroMarkFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@media (max-width: 900px) {
+  .hero-layout { grid-template-columns: 1fr; }
+  .hero-mark { order: -1; margin: 8px auto 0; }
+  .hero-mark img { height: 64px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-mark { animation: none; }
+}
