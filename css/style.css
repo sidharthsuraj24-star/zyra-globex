@@ -1455,6 +1455,10 @@ body.opening-lock { overflow: hidden; }
 }
 
 h1, h2, h3 { font-family: Palatino, "Palatino Linotype", "Iowan Old Style", Georgia, serif; letter-spacing: -0.02em; }
+.product-jumps .btn,
+#products {
+  font-family: Palatino, "Palatino Linotype", "Iowan Old Style", Georgia, serif;
+}
 .why-item { background: #dce6f2; border: 1px solid rgba(4, 40, 95, 0.14); border-radius: 16px; padding: 22px; }
 .about-image { background: #f4f6ee; border-radius: 16px; border: 1px solid rgba(4, 40, 95, 0.14); min-height: 420px; height: 100%; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
 .about-image::after { content: ""; position: absolute; width: 220px; height: 220px; border-radius: 50%; background: rgba(158, 200, 25, 0.18); animation: aboutGlow 4.8s ease-in-out infinite; }
