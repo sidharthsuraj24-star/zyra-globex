@@ -1677,7 +1677,5 @@ button.product-detail-image {
   height: 72px;
   width: auto;
   margin: 0 0 22px;
-  padding: 8px 12px 7px;
-  background: #fff;
-  border-radius: 14px;
+  background: none;
 }
