@@ -1469,7 +1469,7 @@ body.opening-lock { overflow: hidden; }
 
 h1, h2, h3 { font-family: Palatino, "Palatino Linotype", "Iowan Old Style", Georgia, serif; letter-spacing: -0.02em; }
 .why-item { background: #dce6f2; border: 1px solid rgba(4, 40, 95, 0.14); border-radius: 16px; padding: 22px; }
-.about-image { background: #dce6f2 url("../images/products/tender-coconut.jpg") center / cover no-repeat; border-radius: 16px; border: 1px solid rgba(4, 40, 95, 0.14); min-height: 420px; height: 100%; font-size: 0; color: transparent; }
+.about-image { background: #dce6f2 url("../images/products/coir-scrubber.jpg") center / cover no-repeat; border-radius: 16px; border: 1px solid rgba(4, 40, 95, 0.14); min-height: 420px; height: 100%; font-size: 0; color: transparent; }
 .about-image::after { display: none; }
 .hero-dots { position: absolute; right: 28px; bottom: 28px; z-index: 3; display: flex; gap: 8px; }
 .hero-dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 99px; background: rgba(255,255,255,.45); cursor: pointer; }
