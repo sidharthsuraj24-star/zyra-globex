@@ -1225,12 +1225,12 @@ body.opening-lock { overflow: hidden; }
 
 /* Quiet, physical motion. Logo colours stay navy and lime. */
 .hero {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 1;
-  height: 100svh;
-  min-height: 100svh;
+  height: auto;
+  min-height: 88vh;
   background: #04285f;
+  overflow: hidden;
 }
 
 .hero::before,
@@ -1407,12 +1407,6 @@ body.opening-lock { overflow: hidden; }
     animation-timeline: scroll(root block);
   }
 
-  .hero-content {
-    animation: heroLift linear both;
-    animation-timeline: scroll(root block);
-    animation-range: 0 68vh;
-  }
-
   .chapter-photo img {
     animation: chapterDrift linear both;
     animation-timeline: view();
@@ -1422,13 +1416,6 @@ body.opening-lock { overflow: hidden; }
 
 @keyframes scrollFill {
   to { transform: scaleX(1); }
-}
-
-@keyframes heroLift {
-  to {
-    opacity: 0;
-    transform: translate3d(0, -80px, 0);
-  }
 }
 
 @keyframes chapterDrift {
@@ -1684,10 +1671,19 @@ button.product-detail-image {
   }
 }
 
-.hero-logo {
-  display: block;
-  height: 72px;
-  width: auto;
-  margin: 0 0 22px;
-  background: none;
+@media (max-width: 768px) {
+  .hero {
+    min-height: 0;
+    height: auto;
+    padding: 96px 0 36px;
+  }
+
+  .hero-content {
+    padding: 0;
+  }
+
+  .hero-logo {
+    height: 64px;
+    margin-bottom: 16px;
+  }
 }
