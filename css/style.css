@@ -1238,6 +1238,25 @@ body.opening-lock { overflow: hidden; }
   display: none;
 }
 
+.hero .container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.hero-content {
+  text-align: center;
+}
+
+.hero-logo {
+  display: block;
+  height: 72px;
+  width: auto;
+  margin: 0 auto 22px;
+}
+
 .header.is-scrolled {
   box-shadow: 0 1px 0 rgba(4, 40, 95, 0.14);
 }
@@ -1689,6 +1708,6 @@ button.product-detail-image {
 
   .hero-logo {
     height: 64px;
-    margin-bottom: 16px;
+    margin: 0 auto 16px;
   }
 }
