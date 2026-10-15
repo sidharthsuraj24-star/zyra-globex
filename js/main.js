@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function () {
         'Company: ' + payload.company,
         'Email: ' + payload.email,
         'Phone: ' + payload.phone,
-        'Country: ' + payload.country,
+        'Destination: ' + payload.country,
         'Products: ' + payload.products,
         '',
         payload.message
