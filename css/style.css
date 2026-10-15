@@ -1252,9 +1252,9 @@ body.opening-lock { overflow: hidden; }
 
 .hero-logo {
   display: block;
-  height: 168px;
+  height: 220px;
   width: auto;
-  max-width: 86vw;
+  max-width: 90vw;
   margin: 0 auto 22px;
 }
 
@@ -1708,7 +1708,7 @@ button.product-detail-image {
   }
 
   .hero-logo {
-    height: 140px;
+    height: 190px;
     margin: 0 auto 16px;
   }
 }
