@@ -283,8 +283,6 @@ document.addEventListener('DOMContentLoaded', function () {
       phone: data.get('phone') || '',
       country: data.get('country') || '',
       products: data.get('products') || '',
-      quantity: data.get('quantity') || '',
-      packing: data.get('packing') || '',
       message: data.get('message') || '',
       _subject: 'Zyra Globex website inquiry',
       _template: 'table',
@@ -313,8 +311,6 @@ document.addEventListener('DOMContentLoaded', function () {
         'Phone: ' + payload.phone,
         'Country: ' + payload.country,
         'Products: ' + payload.products,
-        'Quantity: ' + payload.quantity,
-        'Packing: ' + payload.packing,
         '',
         payload.message
       ].join('\n');
