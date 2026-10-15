@@ -75,23 +75,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  var reel = document.querySelector('.page-hero.has-reel .hero-slides') || document.querySelector('.reel-frame');
-  if (reel && !reduce) {
-    var shots = reel.querySelectorAll('img');
-    var cap = document.querySelector('.page-hero.has-reel .reel-caption') || reel.querySelector('.reel-caption');
-    var reelIndex = 0;
-    setInterval(function () {
-      if (!shots.length) return;
-      shots[reelIndex].classList.remove('is-on');
-      reelIndex = (reelIndex + 1) % shots.length;
-      shots[reelIndex].classList.add('is-on');
-      if (cap) {
-        cap.textContent = shots[reelIndex].getAttribute('data-title') || '';
-        cap.setAttribute('href', shots[reelIndex].getAttribute('data-href') || '#');
-      }
-    }, 3800);
-  }
-
   if (!reduce && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
     document.querySelectorAll('.product-detail-image').forEach(function (stage) {
       stage.addEventListener('pointermove', function (event) {
