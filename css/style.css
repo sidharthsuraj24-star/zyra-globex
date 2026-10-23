@@ -1229,8 +1229,10 @@ body.opening-lock { overflow: hidden; }
   z-index: 1;
   height: auto;
   min-height: 88vh;
+  margin: 16px 16px 0;
   background: #04285f;
   overflow: hidden;
+  border-radius: 36px;
 }
 
 .hero::before,
@@ -1700,7 +1702,9 @@ button.product-detail-image {
   .hero {
     min-height: 0;
     height: auto;
+    margin: 10px 10px 0;
     padding: 96px 0 36px;
+    border-radius: 28px;
   }
 
   .hero-content {
